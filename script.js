@@ -14,10 +14,12 @@ function render(list) {
   list.forEach(file => {
     const div = document.createElement("div");
     div.className = "file";
+
     div.innerHTML = `
-      <h3>${file.name}</h3>
+      <div style="font-size:14px; font-weight:bold;">${file.name}</div>
       <a href="${file.file}" download>Pobierz</a>
     `;
+
     container.appendChild(div);
   });
 }
