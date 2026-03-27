@@ -1,64 +1,80 @@
-body {
-  font-family: Arial;
-  background: #121212;
-  color: white;
-  margin: 0;
+@font-face {
+  font-family: "CustomFont";
+  src: url("fontt.ttf");
 }
 
-/* TOP BAR jak stary Android */
+body {
+  margin: 0;
+  font-family: "CustomFont", Arial;
+  background: linear-gradient(180deg, #e9f6ff, #cfeeff);
+  color: #1b1b1b;
+}
+
+/* TOP BAR - glass / aero vibe */
 .topbar {
   display: flex;
   align-items: center;
-  gap: 15px;
-  padding: 15px;
-  background: #1e1e1e;
+  gap: 20px;
+  padding: 18px;
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(0,0,0,0.1);
 }
 
+/* DUŻE NIE-SPŁASZCZONE LOGO */
 .logo {
-  width: 70px;   /* większe logo */
-  height: 70px;
+  width: 120px;
+  height: 120px;
+  object-fit: contain;
+  filter: drop-shadow(0px 5px 10px rgba(0,0,0,0.2));
 }
 
+/* TITLE */
 h1 {
-  font-size: 22px;
+  font-size: 28px;
+  font-weight: bold;
 }
 
-/* search */
+/* SEARCH */
 #search {
   margin: 15px;
-  padding: 10px;
+  padding: 12px;
   width: calc(100% - 30px);
-  border-radius: 10px;
-  border: none;
+  border-radius: 12px;
+  border: 1px solid rgba(0,0,0,0.2);
   outline: none;
+  background: rgba(255,255,255,0.7);
 }
 
-/* GRID jak Android menu */
+/* GRID jak Android + Aero */
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-  gap: 12px;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 14px;
   padding: 15px;
 }
 
-/* KAFELKI */
+/* KAFELKI - glossy aero */
 .file {
-  background: #1f1f1f;
-  border-radius: 15px;
-  padding: 15px;
+  background: linear-gradient(180deg, #ffffff, #dff3ff);
+  border-radius: 18px;
+  padding: 16px;
   text-align: center;
+  border: 1px solid rgba(0,0,0,0.1);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.1);
   transition: 0.2s;
   cursor: pointer;
 }
 
 .file:hover {
-  background: #2a2a2a;
-  transform: scale(1.03);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.15);
 }
 
 .file a {
   display: inline-block;
   margin-top: 10px;
-  color: #4da3ff;
   text-decoration: none;
+  color: #0077cc;
+  font-weight: bold;
 }
