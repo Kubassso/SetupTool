@@ -1,0 +1,29 @@
+body {
+  font-family: Arial;
+  background: #0f0f0f;
+  color: white;
+  text-align: center;
+}
+
+.logo {
+  width: 80px;
+}
+
+.header {
+  margin-top: 20px;
+}
+
+#search {
+  margin: 20px;
+  padding: 10px;
+  width: 60%;
+  border-radius: 8px;
+}
+
+.file {
+  background: #1c1c1c;
+  margin: 10px auto;
+  padding: 10px;
+  width: 60%;
+  border-radius: 8px;
+}
