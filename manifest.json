@@ -1,0 +1,10 @@
+[
+  {
+    "name": "example1",
+    "file": "files/example1.zip"
+  },
+  {
+    "name": "example2",
+    "file": "files/example2.exe"
+  }
+]
