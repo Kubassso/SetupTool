@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>SetupTool</title>
+
+<style>
+@font-face {
+  font-family: "CustomFont";
+  src: url("fontt.ttf");
+}
+
+body {
+  margin: 0;
+  font-family: "CustomFont", Arial;
+  background: linear-gradient(180deg, #e9f6ff, #cfeeff);
+  color: #1b1b1b;
+}
+
+/* TOP BAR */
+.topbar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 30px;
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(0,0,0,0.1);
+}
+
+.logo {
+  width: 220px;
+  height: 220px;
+  object-fit: contain;
+  filter: drop-shadow(0px 10px 25px rgba(0,0,0,0.25));
+}
+
+/* SEARCH */
+#search {
+  margin: 15px;
+  padding: 12px;
+  width: calc(100% - 30px);
+  border-radius: 12px;
+  border: 1px solid rgba(0,0,0,0.2);
+  outline: none;
+  background: rgba(255,255,255,0.7);
+  font-family: inherit;
+}
+
+/* GRID */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 14px;
+  padding: 15px;
+}
+
+/* CARD */
+.card {
+  background: linear-gradient(180deg, #ffffff, #dff3ff);
+  border-radius: 18px;
+  padding: 18px;
+  text-align: center;
+  border: 1px solid rgba(0,0,0,0.1);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+  transition: 0.2s;
+  cursor: pointer;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 25px rgba(0,0,0,0.18);
+}
+
+.title {
+  font-weight: bold;
+  font-size: 15px;
+}
+
+.info {
+  margin-top: 10px;
+  font-size: 13px;
+  color: #333;
+}
+</style>
+
+</head>
+<body>
+
+<div class="topbar">
+  <img src="LogoTool.png" class="logo">
+</div>
+
+<input type="text" id="search" placeholder="Search information...">
+
+<div id="content" class="grid"></div>
+
+<script>
+// DATA (zamiast plików)
+const data = [
+  {
+    name: "Creator",
+    info: "Kueleven"
+  },
+  {
+    name: "Year of creation",
+    info: "2026"
+  },
+  {
+    name: "Project name",
+    info: "SetupTool"
+  },
+  {
+    name: "Type",
+    info: "Web Application (GitHub Pages)"
+  }
+];
+
+function render(list) {
+  const container = document.getElementById("content");
+  container.innerHTML = "";
+
+  list.forEach(item => {
+    const div = document.createElement("div");
+    div.className = "card";
+
+    div.innerHTML = `
+      <div class="title">${item.name}</div>
+      <div class="info">${item.info}</div>
+    `;
+
+    container.appendChild(div);
+  });
+}
+
+render(data);
+
+// SEARCH
+document.getElementById("search").addEventListener("input", e => {
+  const value = e.target.value.toLowerCase();
+
+  const filtered = data.filter(d =>
+    d.name.toLowerCase().includes(value) ||
+    d.info.toLowerCase().includes(value)
+  );
+
+  render(filtered);
+});
+</script>
+
+</body>
+</html>
